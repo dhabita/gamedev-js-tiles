@@ -6,5 +6,5 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + req.url));
 });
 
-let port = 80;
+let port = 2000;
 app.listen(port, () => console.info(`App listen on port ${port}`));
