@@ -5015,6 +5015,21 @@ let TILE = {
         ]
     }]
 };
+
+for (a = 0; a < 2500 - 1; a++) {
+
+    let aa = TILE.layers[0].positions[a].id;
+
+    if (aa == 6)
+        if (Math.random() < 0.2) {
+            TILE.layers[1].positions[a].id = 1;
+
+        }
+
+
+}
+
+
 var map = {
     cols: 50,
     rows: 50,
@@ -5338,6 +5353,20 @@ Game._drawLayer = function(layer) {
                     map.tsize, // target width
                     map.tsize // target height
                 );
+
+            // var tt = map.getTile(2, c, r);
+            // if (tt > 0)
+            //     this.ctx.drawImage(
+            //         this.tiles2, // image
+            //         0, // (tile - 1) * map.tsize, // source x
+            //         0, // 1, // source y
+            //         100, //map.tsize, // source width
+            //         100, //map.tsize, // source height
+            //         Math.round(x), // target x
+            //         Math.round(y), // target y
+            //         map.tsize, // target width
+            //         map.tsize // target height
+            //     );
             // if (tile == 3)
             //     this.ctx.drawImage(
             //         this.t2, // image
