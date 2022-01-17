@@ -5319,8 +5319,8 @@ Game._drawLayer = function(layer) {
                 this.t2, // image
                 xx, // source x
                 yy, //tile * map.tsize, // 1, // source y
-                map.tsize, // source width
-                map.tsize, // source height
+               32, // source width
+               32, // source height
                 Math.round(x), // target x
                 Math.round(y), // target y
                 map.tsize, // target width
