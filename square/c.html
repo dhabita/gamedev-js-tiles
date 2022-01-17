@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Tilemaps examples - Scrolling map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css" type="text/css">
+    <script>
+        let STOP = 0;
+    </script>
+    <script src="tile.js"></script>
+    <script src="../common.js"></script>
+    <script src="c.js"></script>
+</head>
+
+<body>
+    <div style='padding:20px'>
+        <button onmousedown='zoomin()' onmouseout="stop()">zoom in</button> <button onmousedown='zoomout()' onmouseout="stop()">zoom out</button>
+        <button onmousedown='move(1)' onmouseout="stop()">left</button> <button onmousedown='move(2)' onmouseout="stop()">right</button>
+        <button onmousedown='move(3)' onmouseout="stop()">down</button> <button onmousedown='move(4)' onmouseout="stop()">up</button>
+    </div>
+    <div class="main-wrapper" >
+        <canvas id="demo"></canvas>
+
+
+    </div>
+    <!-- main wrapper -->
+
+
+
+</body>
+
+
+</html>
