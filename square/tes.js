@@ -16607,8 +16607,8 @@ Game._drawLayer = function(layer) {
 
             this.ctx.drawImage(
                 this.tile, // image
-                xx, // source x
-                yy, //tile * map.tsize, // 1, // source y
+                xx, // source x horisontal
+                yy, //tile * map.tsize, // 1, // source y verikal
                 map.tsize, // source width
                 map.tsize, // source height
                 Math.round(x), // target x
