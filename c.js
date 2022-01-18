@@ -18,9 +18,7 @@
  ];
 
 
- let COIN = [
-     { pos: 302, am: 0.1 }, { pos: 303, am: 0.11 }, { pos: 304, am: 0.11 },
- ];
+ let COIN = [];
 
  ///
 
@@ -34,9 +32,10 @@
  for (a = 0; a < 2500; a++) {
      let v = 0;
 
-     if (TILE.layers[0].data[a] == 29) v = 1;
+     if (TILE.layers[4].data[a] == 253) v = 1;
      // if(Math.random()<0.1) v=1;
      TILE.layers[coinlayer].data[a] = v;
+     COIN[a] = Math.random() * 10;
  }
 
 
@@ -187,7 +186,7 @@
 
 
 
-
+             if (layer == 4) continue;
              //draw player
 
              if (layer == layerlength) {
@@ -212,34 +211,37 @@
                              );
                      }
                  }
-             }
+             } else
              if (layer == coinlayer) {
                  if (tileo == 1) {
                      let pidp = r * map.cols + c;
 
+
                      // console.log(pidp);
-                     for (let g = 0; g < COIN.length; g++) {
-                         //  console.log(PLAYER[g], pidp);
-                         if (COIN[g].pos == pidp) {
-                             this.ctx.drawImage(
-                                 this.coin, // image
-                                 0, // source x
-                                 0, //tile * map.tsize, // 1, // source y
+                     //  for (let g = 0; g < COIN.length; g++) {
+                     //      //  console.log(PLAYER[g], pidp);
+                     //      if (COIN[g].pos == pidp) {
+                     this.ctx.drawImage(
+                         this.coin, // image
+                         0, // source x
+                         0, //tile * map.tsize, // 1, // source y
 
-                                 100, // source width
-                                 100, // source height
-                                 Math.round(x), // target x
-                                 Math.round(y), // target y
-                                 map.tsize, // target width
-                                 map.tsize // target height
-                             );
+                         100, // source width
+                         100, // source height
+                         Math.round(x), // target x
+                         Math.round(y), // target y
+                         map.tsize, // target width
+                         map.tsize // target height
+                     );
 
 
-                             this.ctx.font = "10px Arial";
-                             this.ctx.fillText(COIN[g].am, Math.round(x + map.tsize * 0.2), Math.round(y + map.tsize * 0.6));
-                         }
+                     if (map.tsize > 25) {
+                         this.ctx.font = "8px Arial";
+                         this.ctx.fillText(COIN[pidp].toFixed(0), Math.round(x + map.tsize * 0.3), Math.round(y + map.tsize * 0.6));
                      }
                  }
+                 //      }
+                 //  }
              } else
 
              {
@@ -268,7 +270,7 @@
          }
      }
 
-     if (moved > 100) {
+     if (moved > 500) {
          moved = 0;
          moveplayer()
      }
@@ -338,10 +340,17 @@
          if (np > 0 && np < 2500)
              if (TILE.layers[layerlength].data[np] == 1) {
                  PLAYER[a] = np;
+
              }
+
+
+
 
      }
 
+     for (a = 0; a < 2500; a++) {
+         COIN[a] += Math.random();
+     }
      //  console.log(PLAYER)
 
  }
