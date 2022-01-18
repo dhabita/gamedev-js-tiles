@@ -17,10 +17,30 @@
 
  ];
 
+
+ let COIN = [
+     { pos: 302, am: 0.1 }, { pos: 303, am: 0.11 }, { pos: 304, am: 0.11 },
+ ];
+
  ///
 
- let layerlength = TILE.layers.length;
- console.log(TILE.layers);
+
+ let coinlayer = TILE.layers.length;
+ let layerlength = TILE.layers.length + 1;
+
+ //player
+ TILE.layers[coinlayer] = {};
+ TILE.layers[coinlayer].data = [];
+ for (a = 0; a < 2500; a++) {
+     let v = 0;
+
+     if (TILE.layers[0].data[a] == 29) v = 1;
+     // if(Math.random()<0.1) v=1;
+     TILE.layers[coinlayer].data[a] = v;
+ }
+
+
+
  //set layer player
  TILE.layers[layerlength] = {};
  TILE.layers[layerlength].data = [];
@@ -94,8 +114,8 @@
  Game.load = function() {
      return [
          Loader.loadImage('tile', '../assets/ff.png'),
-         Loader.loadImage('player', '../assets/kk.png')
-         //     Loader.loadImage('tiles2', '../assets/kindbg.png'),
+         Loader.loadImage('player', '../assets/kk.png'),
+         Loader.loadImage('coin', '../assets/gold-coin.png')
          //     Loader.loadImage('grass', '../assets/grass.png'),
          //     Loader.loadImage('t2', '../assets/T3.png'),
      ];
@@ -108,6 +128,7 @@
      // this.logo = Loader.getImage('tiles2');
      this.tile = Loader.getImage('tile');
      this.player = Loader.getImage('player');
+     this.coin = Loader.getImage('coin');
 
      var canvas = document.getElementById('demo');
      canvas.width = window.innerWidth;
@@ -189,6 +210,34 @@
                                  map.tsize, // target width
                                  map.tsize // target height
                              );
+                     }
+                 }
+             }
+             if (layer == coinlayer) {
+                 if (tileo == 1) {
+                     let pidp = r * map.cols + c;
+
+                     // console.log(pidp);
+                     for (let g = 0; g < COIN.length; g++) {
+                         //  console.log(PLAYER[g], pidp);
+                         if (COIN[g].pos == pidp) {
+                             this.ctx.drawImage(
+                                 this.coin, // image
+                                 0, // source x
+                                 0, //tile * map.tsize, // 1, // source y
+
+                                 100, // source width
+                                 100, // source height
+                                 Math.round(x), // target x
+                                 Math.round(y), // target y
+                                 map.tsize, // target width
+                                 map.tsize // target height
+                             );
+
+
+                             this.ctx.font = "10px Arial";
+                             this.ctx.fillText(COIN[g].am, Math.round(x + map.tsize * 0.2), Math.round(y + map.tsize * 0.6));
+                         }
                      }
                  }
              } else
