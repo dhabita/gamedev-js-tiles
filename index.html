@@ -15,11 +15,7 @@
 </head>
 
 <body>
-    <div style='padding:20px'>
-        <button onmousedown='zoomin()' onmouseout="stop()">zoom in</button> <button onmousedown='zoomout()' onmouseout="stop()">zoom out</button>
-        <button onmousedown='move(1)' onmouseout="stop()">left</button> <button onmousedown='move(2)' onmouseout="stop()">right</button>
-        <button onmousedown='move(3)' onmouseout="stop()">down</button> <button onmousedown='move(4)' onmouseout="stop()">up</button>
-    </div>
+
     <div class="main-wrapper">
         <canvas id="demo"></canvas>
 
@@ -30,6 +26,12 @@
 
 
 </body>
+
+<div style='position: fixed; bottom:0px;left:0px;right:0px;padding:20px;background-color: none; background-color:rgba(0, 0, 0, 0.1);'>
+    <button onmousedown='zoomin()' onmouseout="stop()">zoom in</button> <button onmousedown='zoomout()' onmouseout="stop()">zoom out</button>
+    <button onmousedown='move(1)' onmouseout="stop()">left</button> <button onmousedown='move(2)' onmouseout="stop()">right</button>
+    <button onmousedown='move(3)' onmouseout="stop()">down</button> <button onmousedown='move(4)' onmouseout="stop()">up</button>
+</div>
 
 
 </html>

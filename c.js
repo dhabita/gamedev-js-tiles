@@ -36,7 +36,7 @@
  var map = {
      cols: TILE.width,
      rows: TILE.height,
-     tsize: 32,
+     tsize: window.innerWidth / TILE.width,
      layers: TILE.layers,
 
      getTile: function(layer, col, row) {
@@ -110,8 +110,8 @@
      this.player = Loader.getImage('player');
 
      var canvas = document.getElementById('demo');
-     canvas.width = window.innerWidth - 10;
-     canvas.height = window.innerHeight - 80;
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
      this.camera = new Camera(map, canvas.width, canvas.height);
  };
 
