@@ -5,6 +5,7 @@ body {
 
 canvas {
     background: #000;
+   
 }
 
 a,
@@ -23,9 +24,11 @@ a:hover {
 }
 
 .main-wrapper {
+    margin-top: 10px;
     padding-left: 0px;
     padding-right: 0px;
     padding: 0px;
+    border: 5px solid #31ffd5
 }
 
 .main-header,
@@ -45,9 +48,23 @@ a:hover {
 .main-header h1 {
     margin: 0;
     background: #31ffd5;
+    padding: 0.5em 1em;
 }
 
 .main-header a {
     color: #000;
     text-decoration: none;
+}
+
+.main-footer {
+    margin-top: 2em;
+}
+
+li,
+p {
+    line-height: 1.25em;
+}
+
+li {
+    margin: 0.5em 0;
 }

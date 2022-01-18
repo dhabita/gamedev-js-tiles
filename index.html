@@ -2,32 +2,36 @@
 <html>
 
 <head>
-    <title>Tilemaps examples</title>
+    <title>Hunter Gold</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <script>
+        let STOP = 0;
+    </script>
+    <script src="tile.js"></script>
+    <script src="common.js"></script>
+    <script src="c.js"></script>
 </head>
 
 <body>
 
-
-
     <div class="main-wrapper">
-
-        <nav>
-
-            <ul>
-
-                <li><a href="square/scroll.html">Scrolling tilemaps</a></li>
-
-            </ul>
-
-
-        </nav>
+        <canvas id="demo"></canvas>
 
 
     </div>
     <!-- main wrapper -->
 
+
+
 </body>
+
+<div style='position: fixed; bottom:0px;left:0px;right:0px;padding:20px;background-color: none; background-color:rgba(0, 0, 0, 0.1);'>
+    <button onmousedown='zoomin()' onmouseout="stop()">zoom in</button> <button onmousedown='zoomout()' onmouseout="stop()">zoom out</button>
+    <button onmousedown='move(1)' onmouseout="stop()">left</button> <button onmousedown='move(2)' onmouseout="stop()">right</button>
+    <button onmousedown='move(3)' onmouseout="stop()">down</button> <button onmousedown='move(4)' onmouseout="stop()">up</button>
+</div>
+
 
 </html>

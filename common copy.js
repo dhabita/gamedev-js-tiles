@@ -95,8 +95,8 @@ Game.tick = function(elapsed) {
 
     // clear previous frame
     var canvas = document.getElementById('demo');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth - 10;
+    canvas.height = window.innerHeight - 90;
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // compute delta time in seconds -- also cap it
@@ -119,8 +119,8 @@ Game.render = function() {};
 
 window.onload = function() {
     var canvas = document.getElementById('demo');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth - 10;
+    canvas.height = window.innerHeight - 90;
     var context = canvas.getContext('2d');
 
     Game.run(context);
