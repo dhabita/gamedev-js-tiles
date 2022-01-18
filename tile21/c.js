@@ -130,7 +130,6 @@ var map = {
                  xx =  ( tile - 1 ) * map.tsize;
            //  xx = 0; 
  
-                 
              this.ctx.drawImage(
               this.tile, // image
               xx, // source x
