@@ -95,8 +95,8 @@ Game.tick = function(elapsed) {
 
     // clear previous frame
     var canvas = document.getElementById('demo');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    //canvas.width = window.innerWidth;
+    //canvas.height = window.innerHeight;
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // compute delta time in seconds -- also cap it
