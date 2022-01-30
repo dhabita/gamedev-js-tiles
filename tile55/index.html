@@ -46,7 +46,35 @@
 
 <div id="playertab"
     style='display:none; position: fixed; z-index: 1000; bottom:0px; top:0px;right:0px; padding:20px; background-color:#fff;min-width:300px'>
-    PLAYER
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:;" onclick="javascript:showdiv('isiWallet')">Wallet</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:;" onclick="javascript:showdiv('isiPlayer')">Player</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:;" onclick="javascript:showdiv('isiMynft')">My NFT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:;" onclick="javascript:showdiv('isiSetting')">Setting</a>
+        </li>
+    </ul>
+
+    <div id="isiWallet" class="isi">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo praesentium fugiat fuga non, laudantium totam
+            sapiente nesciunt error eius officia sequi similique, qui dolor delectus tempore. Odit laboriosam ullam nobis!</p>
+    </div>
+    <div id="isiPlayer" class="isi">
+        <p>audantium totam
+        sapiente nesciunt error eius officia sequi similique, qui dolor delectus tempore. Odit laboriosam ullam nobis!</p>
+    </div>
+    <div id="isiMynft" class="isi">
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div>
+    <div id="isiSetting" class="isi">
+        <p>L error eius officia sequi similique, qui dolor delectus tempore. Odit laboriosam ullam nobis!</p>
+    </div>
 </div>
 
 <div id="navigator" class='text-center  ui-widget-content'
@@ -54,21 +82,23 @@
 
     <button onmousedown='zoomout()' onmouseout="stop()" class="zoom"><i class="fas fa-search-minus"></i></button>
     <button onmousedown='zoomin()' onmouseout="stop()" class="zoom"><i class="fas fa-search-plus"></i></button>
-    <button class="tools" onclick="closeNav()" id="close"><i class="fas fa-times-circle"style="color: red;"></i></button>
+    <button class="tools" onclick="closeNav()" id="close"><i class="fas fa-times-circle"
+            style="color: red;"></i></button>
     <button class="tools"><i class="fas fa-question"></i></button> <br><br>
     <button onmousedown='move(4)' onmouseout="stop()" class="move"><i class="fas fa-caret-up"></i></button><br>
-    <button onmousedown='move(1)' onmouseout="stop()" class="move" style="margin-left: 30px;"><i class="fas fa-caret-left"></i></button>
+    <button onmousedown='move(1)' onmouseout="stop()" class="move" style="margin-left: 30px;"><i
+            class="fas fa-caret-left"></i></button>
     <button disabled
         style="opacity:0 ;background-color:lightgray; width: 25px; height: 25px; border-radius:20%;"></button>
-    <button onmousedown='move(2)' onmouseout="stop()" class="move" style="margin-right:30px ;"><i class="fas fa-caret-right"></i></button><br>
-    <button onmousedown='move(3)' onmouseout="stop()" class="move" style="margin-bottom:30px;"><i class="fas fa-caret-down"></i></button> <br>
+    <button onmousedown='move(2)' onmouseout="stop()" class="move" style="margin-right:30px ;"><i
+            class="fas fa-caret-right"></i></button><br>
+    <button onmousedown='move(3)' onmouseout="stop()" class="move" style="margin-bottom:30px;"><i
+            class="fas fa-caret-down"></i></button> <br>
 
 
 
 
 </div>
-
-
 
 
 </html>
@@ -83,12 +113,14 @@
         map.tsize -= 300 / map.rows;
 
         Game.init();
-
-
-
     }
 
-    function closeNav(){
+    function showdiv(id) {
+        $("#playertab div").hide(0);
+        $("#playertab #" + id).show(); 
+    }
+
+    function closeNav() {
         $("#navigator").hide();
     }
 

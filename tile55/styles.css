@@ -59,21 +59,28 @@ a:hover {
     text-decoration: none;
 }
 
-.text-center .zoom, .tools, .move i {
+.text-center .zoom,
+.tools,
+.move i {
     color: rgba(255, 255, 255, 0.5);
 }
 
 .text-center .move {
     opacity: 1;
-    background-color:rgba(146, 137, 137, 0.5);
+    background-color: rgba(146, 137, 137, 0.5);
     width: 40px;
     height: 40px;
     border-radius: 20%;
 }
-.tools{
+
+.tools {
     display: inline;
     float: right;
     background-color: unset;
     text-decoration: none;
-    
+
+}
+.isi{
+    display: none;
+    width: 300px;
 }
