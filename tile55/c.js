@@ -15,13 +15,11 @@
      152 + 2241, 153 + 2241, 154 + 2241, 155 + 2241, 156 + 2241, 157 + 2241,
      202 + 2241, 203 + 2241, 204 + 2241, 205 + 2241, 106 + 2241, 207 + 2241
 
+
  ];
 
 
  let COIN = [];
-
- ///
-
 
  let coinlayer = TILE.layers.length;
  let layerlength = TILE.layers.length + 1;
@@ -58,7 +56,7 @@
      tsize: window.innerWidth / TILE.width,
      layers: TILE.layers,
 
-     getTile: function(layer, col, row) {
+     getTile: function (layer, col, row) {
 
          //console.log(col, row);
          let pid = row * map.cols + col;
@@ -79,6 +77,41 @@
  //     map.layers[0][t] = x;
  // }
 
+ function MovementGoal() {
+     let elem = document.getElementById('demo');
+     let elemLeft = elem.offsetLeft + elem.clientLeft;
+     let elemTop = elem.offsetTop + elem.clientTop;
+
+     elem.addEventListener('click', function (event) {
+         endX = (event.pageX - elemLeft) / 32;
+         endY = (event.pageY - elemTop) / 32;
+
+
+         console.log({
+             endX,
+             endY
+         });
+     });
+     
+     const canvas = document.querySelector('#canvas');
+
+     if (!canvas.getContext) {
+         return;
+     }
+     const ctx = canvas.getContext('2d');
+
+     // set line stroke and line width
+     ctx.strokeStyle = 'red';
+     ctx.lineWidth = 5;
+
+     // draw a red line
+     ctx.beginPath();
+     ctx.moveTo(startX, startY);
+     ctx.lineTo(endX, endY);
+     ctx.stroke();
+
+ }
+
  let camerax = 0;
  let cameray = 0;
 
@@ -98,7 +131,7 @@
 
  Camera.SPEED = 500; // pixels per second
 
- Camera.prototype.move = function(delta, dirx, diry) {
+ Camera.prototype.move = function (delta, dirx, diry) {
      // move camera
      this.x += dirx * Camera.SPEED * delta;
      this.y += diry * Camera.SPEED * delta;
@@ -110,7 +143,7 @@
      cameray = this.y;
  };
 
- Game.load = function() {
+ Game.load = function () {
      return [
          Loader.loadImage('tile', '../assets/ff.png'),
          Loader.loadImage('player', '../assets/kk.png'),
@@ -120,7 +153,7 @@
      ];
  };
 
- Game.init = function() {
+ Game.init = function () {
      Keyboard.listenForEvents(
          [Keyboard.LEFT, Keyboard.RIGHT, Keyboard.UP, Keyboard.DOWN]);
      // this.tileAtlas = Loader.getImage('grass');
@@ -136,14 +169,22 @@
 
  let dir2x = 0;
  let dir2y = 0;
- Game.update = function(delta) {
+ Game.update = function (delta) {
      // handle camera movement with arrow keys
      var dirx = 0;
      var diry = 0;
-     if (Keyboard.isDown(Keyboard.LEFT)) { dirx = -1; }
-     if (Keyboard.isDown(Keyboard.RIGHT)) { dirx = 1; }
-     if (Keyboard.isDown(Keyboard.UP)) { diry = -1; }
-     if (Keyboard.isDown(Keyboard.DOWN)) { diry = 1; }
+     if (Keyboard.isDown(Keyboard.LEFT)) {
+         dirx = -1;
+     }
+     if (Keyboard.isDown(Keyboard.RIGHT)) {
+         dirx = 1;
+     }
+     if (Keyboard.isDown(Keyboard.UP)) {
+         diry = -1;
+     }
+     if (Keyboard.isDown(Keyboard.DOWN)) {
+         diry = 1;
+     }
      //console.log(Game.camera);
      dirx = dirx + dir2x;
      diry = diry + dir2y;
@@ -152,7 +193,7 @@
      this.camera.move(delta, dirx, diry);
  };
 
- Game._drawLayer = function(layer) {
+ Game._drawLayer = function (layer) {
      var startCol = Math.floor(this.camera.x / map.tsize);
      var endCol = startCol + (this.camera.width / map.tsize);
      var startRow = Math.floor(this.camera.y / map.tsize);
@@ -281,7 +322,7 @@
      //  console.log(PLAYER);
  };
 
- Game.render = function() {
+ Game.render = function () {
 
 
      for (let a = 0; a < map.layers.length; a++) {
@@ -351,10 +392,18 @@
          if (!STOP) break;
          await sleep(100);
 
-         if (a == 1) { dir2x = -1 }
-         if (a == 2) { dir2x = 1; }
-         if (a == 4) { dir2y = -1; }
-         if (a == 3) { dir2y = 1; }
+         if (a == 1) {
+             dir2x = -1
+         }
+         if (a == 2) {
+             dir2x = 1;
+         }
+         if (a == 4) {
+             dir2y = -1;
+         }
+         if (a == 3) {
+             dir2y = 1;
+         }
          console.log(dir2x, dir2y)
      }
  }
